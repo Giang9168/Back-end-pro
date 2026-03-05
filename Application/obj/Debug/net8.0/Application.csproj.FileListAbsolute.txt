@@ -1,0 +1,15 @@
+C:\Back_End\Back_End\Application\bin\Debug\net8.0\Application.deps.json
+C:\Back_End\Back_End\Application\bin\Debug\net8.0\Application.dll
+C:\Back_End\Back_End\Application\bin\Debug\net8.0\Application.pdb
+C:\Back_End\Back_End\Application\bin\Debug\net8.0\Domain.dll
+C:\Back_End\Back_End\Application\bin\Debug\net8.0\Domain.pdb
+C:\Back_End\Back_End\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+C:\Back_End\Back_End\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Back_End\Back_End\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+C:\Back_End\Back_End\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+C:\Back_End\Back_End\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+C:\Back_End\Back_End\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+C:\Back_End\Back_End\Application\obj\Debug\net8.0\Application.dll
+C:\Back_End\Back_End\Application\obj\Debug\net8.0\refint\Application.dll
+C:\Back_End\Back_End\Application\obj\Debug\net8.0\Application.pdb
+C:\Back_End\Back_End\Application\obj\Debug\net8.0\ref\Application.dll

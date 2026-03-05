@@ -1,0 +1,13 @@
+# Angular
+
+.vs/
+[Bb]in/
+[Oo]bj/
+node_modules/
+dist/
+
+# .NET
+bin/
+obj/
+.vs/
+appsettings.Development.json
