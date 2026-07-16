@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Back_End\\Back_End\\Web_API\\Web_API.csproj": {}
+    "C:\\Project_personal\\Back-end-pro\\Web_API\\Web_API.csproj": {}
   },
   "projects": {
-    "C:\\Back_End\\Back_End\\Application\\Application.csproj": {
+    "C:\\Project_personal\\Back-end-pro\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Back_End\\Back_End\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Project_personal\\Back-end-pro\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Back_End\\Back_End\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Back_End\\Back_End\\Application\\obj\\",
+        "projectPath": "C:\\Project_personal\\Back-end-pro\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Project_personal\\Back-end-pro\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,16 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\telerikk\\Telerik_Reporting_17.2.23.1114_NuGet_DEV": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Back_End\\Back_End\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Back_End\\Back_End\\Domain\\Domain.csproj"
+              "C:\\Project_personal\\Back-end-pro\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Project_personal\\Back-end-pro\\Domain\\Domain.csproj"
               }
             }
           }
@@ -56,6 +54,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -77,24 +79,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Back_End\\Back_End\\Domain\\Domain.csproj": {
+    "C:\\Project_personal\\Back-end-pro\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Back_End\\Back_End\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Project_personal\\Back-end-pro\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Back_End\\Back_End\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Back_End\\Back_End\\Domain\\obj\\",
+        "projectPath": "C:\\Project_personal\\Back-end-pro\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Project_personal\\Back-end-pro\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -103,8 +105,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\telerikk\\Telerik_Reporting_17.2.23.1114_NuGet_DEV": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -144,24 +144,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Back_End\\Back_End\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Project_personal\\Back-end-pro\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Back_End\\Back_End\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Project_personal\\Back-end-pro\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Back_End\\Back_End\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Back_End\\Back_End\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Project_personal\\Back-end-pro\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Project_personal\\Back-end-pro\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -170,16 +170,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\telerikk\\Telerik_Reporting_17.2.23.1114_NuGet_DEV": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Back_End\\Back_End\\Application\\Application.csproj": {
-                "projectPath": "C:\\Back_End\\Back_End\\Application\\Application.csproj"
+              "C:\\Project_personal\\Back-end-pro\\Application\\Application.csproj": {
+                "projectPath": "C:\\Project_personal\\Back-end-pro\\Application\\Application.csproj"
               }
             }
           }
@@ -225,24 +223,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Back_End\\Back_End\\Web_API\\Web_API.csproj": {
+    "C:\\Project_personal\\Back-end-pro\\Web_API\\Web_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Back_End\\Back_End\\Web_API\\Web_API.csproj",
+        "projectUniqueName": "C:\\Project_personal\\Back-end-pro\\Web_API\\Web_API.csproj",
         "projectName": "Web_API",
-        "projectPath": "C:\\Back_End\\Back_End\\Web_API\\Web_API.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Back_End\\Back_End\\Web_API\\obj\\",
+        "projectPath": "C:\\Project_personal\\Back-end-pro\\Web_API\\Web_API.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Project_personal\\Back-end-pro\\Web_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -251,19 +249,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\telerikk\\Telerik_Reporting_17.2.23.1114_NuGet_DEV": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Back_End\\Back_End\\Application\\Application.csproj": {
-                "projectPath": "C:\\Back_End\\Back_End\\Application\\Application.csproj"
+              "C:\\Project_personal\\Back-end-pro\\Application\\Application.csproj": {
+                "projectPath": "C:\\Project_personal\\Back-end-pro\\Application\\Application.csproj"
               },
-              "C:\\Back_End\\Back_End\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Back_End\\Back_End\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Project_personal\\Back-end-pro\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Project_personal\\Back-end-pro\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -308,7 +304,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

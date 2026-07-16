@@ -1,33 +1,37 @@
+using Application.Features.WeatherForecasts.Commands.Create;
+using Application.Features.WeatherForecasts.Queries.GetAll;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Web_API.Controllers
+namespace Web_API.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class WeatherForecastController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    private readonly ISender _sender;
+
+    public WeatherForecastController(ISender sender)
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        _sender = sender;
+    }
 
-        private readonly ILogger<WeatherForecastController> _logger;
+    /// <summary>Lấy danh sách dự báo thời tiết.</summary>
+    [HttpGet]
+    public async Task<IActionResult> GetAll(CancellationToken ct)
+    {
+        var result = await _sender.Send(new GetWeatherForecastsQuery(), ct);
+        return Ok(result);
+    }
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
-
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
+    /// <summary>Tạo mới một bản ghi dự báo thời tiết.</summary>
+    [HttpPost]
+    public async Task<IActionResult> Create(
+        [FromBody] LoginCommand command,
+        CancellationToken ct)
+    {
+        var result = await _sender.Send(command, ct);
+        return CreatedAtAction(nameof(GetAll), new { id = result.Id }, result);
     }
 }
+

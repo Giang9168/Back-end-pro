@@ -1,30 +1,65 @@
 namespace Application.Common.Models;
 
-public class Result
+public class Result<T>
 {
-    public bool IsSuccess { get; }
-    public string? Error { get; }
-    public bool IsFailure => !IsSuccess;
-
-    protected Result(bool isSuccess, string? error)
+    private Result(bool isSuccess, T? data, string? errorMessage, string? errorCode, List<string>? errors = null)
     {
         IsSuccess = isSuccess;
-        Error = error;
+        Data = data;
+        ErrorMessage = errorMessage;
+        ErrorCode = errorCode;
+        if (errors != null) Errors = errors;
     }
 
-    public static Result Success() => new(true, null);
-    public static Result Failure(string error) => new(false, error);
+    public bool IsSuccess { get; private set; }
+    public T? Data { get; private set; }
+    public string? ErrorMessage { get; private set; }
+    public string? ErrorCode { get; private set; }
+    public List<string> Errors { get; private set; } = new();
+
+    public static Result<T> Success(T data)
+    {
+        return new Result<T>(true, data, null, null);
+    }
+
+    public static Result<T> Failure(string errorMessage, string? errorCode = null)
+    {
+        return new Result<T>(false, default, errorMessage, errorCode);
+    }
+
+    public static Result<T> Failure(List<string> errors, string? errorCode = null)
+    {
+        return new Result<T>(false, default, null, errorCode, errors);
+    }
 }
 
-public class Result<T> : Result
+public class Result
 {
-    public T? Value { get; }
-
-    private Result(bool isSuccess, T? value, string? error) : base(isSuccess, error)
+    private Result(bool isSuccess, string? errorMessage, string? errorCode, List<string>? errors = null)
     {
-        Value = value;
+        IsSuccess = isSuccess;
+        ErrorMessage = errorMessage;
+        ErrorCode = errorCode;
+        if (errors != null) Errors = errors;
     }
 
-    public static Result<T> Success(T value) => new(true, value, null);
-    public new static Result<T> Failure(string error) => new(false, default, error);
+    public bool IsSuccess { get; private set; }
+    public string? ErrorMessage { get; private set; }
+    public string? ErrorCode { get; private set; }
+    public List<string> Errors { get; private set; } = new();
+
+    public static Result Success()
+    {
+        return new Result(true, null, null);
+    }
+
+    public static Result Failure(string errorMessage, string? errorCode = null)
+    {
+        return new Result(false, errorMessage, errorCode);
+    }
+
+    public static Result Failure(List<string> errors, string? errorCode = null)
+    {
+        return new Result(false, null, errorCode, errors);
+    }
 }

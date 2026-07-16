@@ -9,3 +9,15 @@ C:\Back_End\Back_End\Domain\obj\Debug\net8.0\Domain.dll
 C:\Back_End\Back_End\Domain\obj\Debug\net8.0\refint\Domain.dll
 C:\Back_End\Back_End\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Back_End\Back_End\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\Project_personal\Back-end-pro\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\Project_personal\Back-end-pro\Domain\bin\Debug\net8.0\Domain.dll
+C:\Project_personal\Back-end-pro\Domain\bin\Debug\net8.0\Domain.pdb
+C:\Project_personal\Back-end-pro\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Project_personal\Back-end-pro\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\Project_personal\Back-end-pro\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\Project_personal\Back-end-pro\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Project_personal\Back-end-pro\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+C:\Project_personal\Back-end-pro\Domain\obj\Debug\net8.0\Domain.dll
+C:\Project_personal\Back-end-pro\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\Project_personal\Back-end-pro\Domain\obj\Debug\net8.0\Domain.pdb
+C:\Project_personal\Back-end-pro\Domain\obj\Debug\net8.0\ref\Domain.dll
