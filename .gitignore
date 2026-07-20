@@ -1,13 +1,18 @@
-# Angular
-
-.vs/
+# Build output
 [Bb]in/
 [Oo]bj/
 node_modules/
 dist/
 
-# .NET
-bin/
-obj/
+# IDE
 .vs/
+*.user
+*.suo
+
+# Config chứa giá trị nhạy cảm — secret dùng user-secrets (dev) / env var (prod)
 appsettings.Development.json
+appsettings.Production.json
+appsettings.*.local.json
+
+# LLBLGen: backup project theo timestamp
+_llblgen/
