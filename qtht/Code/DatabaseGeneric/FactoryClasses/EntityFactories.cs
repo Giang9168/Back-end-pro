@@ -64,6 +64,36 @@ namespace Qtht.Data.FactoryClasses
 		protected override Type ForEntityType { get { return typeof(TEntity); } }
 	}
 
+	/// <summary>Factory to create new, empty AppRoleEntity objects.</summary>
+	[Serializable]
+	public partial class AppRoleEntityFactory : EntityFactoryBase2<AppRoleEntity> 
+	{
+		/// <summary>CTor</summary>
+		public AppRoleEntityFactory() : base("AppRoleEntity", Qtht.Data.EntityType.AppRoleEntity, false) { }
+		/// <inheritdoc/>
+		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new AppRoleEntity(fields); }
+	}
+
+	/// <summary>Factory to create new, empty AppUserEntity objects.</summary>
+	[Serializable]
+	public partial class AppUserEntityFactory : EntityFactoryBase2<AppUserEntity> 
+	{
+		/// <summary>CTor</summary>
+		public AppUserEntityFactory() : base("AppUserEntity", Qtht.Data.EntityType.AppUserEntity, false) { }
+		/// <inheritdoc/>
+		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new AppUserEntity(fields); }
+	}
+
+	/// <summary>Factory to create new, empty EmailVerificationTokenEntity objects.</summary>
+	[Serializable]
+	public partial class EmailVerificationTokenEntityFactory : EntityFactoryBase2<EmailVerificationTokenEntity> 
+	{
+		/// <summary>CTor</summary>
+		public EmailVerificationTokenEntityFactory() : base("EmailVerificationTokenEntity", Qtht.Data.EntityType.EmailVerificationTokenEntity, false) { }
+		/// <inheritdoc/>
+		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new EmailVerificationTokenEntity(fields); }
+	}
+
 	/// <summary>Factory to create new, empty NewtableEntity objects.</summary>
 	[Serializable]
 	public partial class NewtableEntityFactory : EntityFactoryBase2<NewtableEntity> 
@@ -72,6 +102,16 @@ namespace Qtht.Data.FactoryClasses
 		public NewtableEntityFactory() : base("NewtableEntity", Qtht.Data.EntityType.NewtableEntity, false) { }
 		/// <inheritdoc/>
 		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new NewtableEntity(fields); }
+	}
+
+	/// <summary>Factory to create new, empty PasswordResetTokenEntity objects.</summary>
+	[Serializable]
+	public partial class PasswordResetTokenEntityFactory : EntityFactoryBase2<PasswordResetTokenEntity> 
+	{
+		/// <summary>CTor</summary>
+		public PasswordResetTokenEntityFactory() : base("PasswordResetTokenEntity", Qtht.Data.EntityType.PasswordResetTokenEntity, false) { }
+		/// <inheritdoc/>
+		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new PasswordResetTokenEntity(fields); }
 	}
 
 	/// <summary>Factory to create new, empty ProductEntity objects.</summary>
@@ -84,14 +124,14 @@ namespace Qtht.Data.FactoryClasses
 		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new ProductEntity(fields); }
 	}
 
-	/// <summary>Factory to create new, empty UserEntity objects.</summary>
+	/// <summary>Factory to create new, empty RefreshTokenEntity objects.</summary>
 	[Serializable]
-	public partial class UserEntityFactory : EntityFactoryBase2<UserEntity> 
+	public partial class RefreshTokenEntityFactory : EntityFactoryBase2<RefreshTokenEntity> 
 	{
 		/// <summary>CTor</summary>
-		public UserEntityFactory() : base("UserEntity", Qtht.Data.EntityType.UserEntity, false) { }
+		public RefreshTokenEntityFactory() : base("RefreshTokenEntity", Qtht.Data.EntityType.RefreshTokenEntity, false) { }
 		/// <inheritdoc/>
-		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new UserEntity(fields); }
+		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new RefreshTokenEntity(fields); }
 	}
 
 	/// <summary>Factory to create new, empty Entity objects based on the entity type specified. Uses  entity specific factory objects</summary>
@@ -141,12 +181,20 @@ namespace Qtht.Data.FactoryClasses
 		{
 			switch(typeOfEntity)
 			{
+				case Qtht.Data.EntityType.AppRoleEntity:
+					return new AppRoleEntityFactory();
+				case Qtht.Data.EntityType.AppUserEntity:
+					return new AppUserEntityFactory();
+				case Qtht.Data.EntityType.EmailVerificationTokenEntity:
+					return new EmailVerificationTokenEntityFactory();
 				case Qtht.Data.EntityType.NewtableEntity:
 					return new NewtableEntityFactory();
+				case Qtht.Data.EntityType.PasswordResetTokenEntity:
+					return new PasswordResetTokenEntityFactory();
 				case Qtht.Data.EntityType.ProductEntity:
 					return new ProductEntityFactory();
-				case Qtht.Data.EntityType.UserEntity:
-					return new UserEntityFactory();
+				case Qtht.Data.EntityType.RefreshTokenEntity:
+					return new RefreshTokenEntityFactory();
 				default:
 					return null;
 			}

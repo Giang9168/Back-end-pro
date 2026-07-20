@@ -37,12 +37,39 @@ public class ExceptionHandlingMiddleware
             _ => (int)HttpStatusCode.InternalServerError
         };
 
-        var response = new
+        object response = exception switch
         {
-            StatusCode = context.Response.StatusCode,
-            Message = exception.Message
+            // Kèm chi tiết từng field: { "Password": ["Mật khẩu phải có ít nhất 8 ký tự"] }
+            Application.Common.Exceptions.ValidationException ve => new
+            {
+                StatusCode = context.Response.StatusCode,
+                Message = "Dữ liệu không hợp lệ",
+                Errors = (IDictionary<string, string[]>?)ve.Errors
+            },
+
+            Application.Common.Exceptions.NotFoundException => new
+            {
+                StatusCode = context.Response.StatusCode,
+                Message = exception.Message,
+                Errors = (IDictionary<string, string[]>?)null
+            },
+
+            // Lỗi ngoài dự kiến: KHÔNG trả exception.Message ra ngoài — nó có thể chứa
+            // tên bảng, câu SQL, đường dẫn file. Chi tiết đã vào log ở InvokeAsync.
+            _ => new
+            {
+                StatusCode = context.Response.StatusCode,
+                Message = "Đã xảy ra lỗi không mong muốn.",
+                Errors = (IDictionary<string, string[]>?)null
+            }
         };
 
-        await context.Response.WriteAsync(JsonSerializer.Serialize(response));
+        var json = JsonSerializer.Serialize(response, new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+        });
+
+        await context.Response.WriteAsync(json);
     }
 }

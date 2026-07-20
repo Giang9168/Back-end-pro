@@ -10,10 +10,10 @@ public interface IUserRepository
 {
     Task<IReadOnlyList<User>> GetAllAsync(CancellationToken cancellationToken = default);
 
-    Task<User?> GetByIdAsync(string id, CancellationToken cancellationToken = default);
+    Task<User?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
     Task<User?> GetByUserNameAsync(string userName, CancellationToken cancellationToken = default);
 
-    /// <summary>Thêm user mới. Trả về user đã lưu (kèm Id do tầng gọi sinh ra).</summary>
+    /// <summary>Thêm user mới. Trả về user đã lưu.</summary>
     Task<User> AddAsync(User user, CancellationToken cancellationToken = default);
 }

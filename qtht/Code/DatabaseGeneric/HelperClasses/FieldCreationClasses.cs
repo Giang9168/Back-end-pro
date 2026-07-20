@@ -10,6 +10,67 @@ using SD.LLBLGen.Pro.ORMSupportClasses;
 
 namespace Qtht.Data.HelperClasses
 {
+	/// <summary>Field Creation Class for entity AppRoleEntity</summary>
+	public partial class AppRoleFields
+	{
+		/// <summary>Creates a new AppRoleEntity.Code field instance</summary>
+		public static EntityField2 Code { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppRoleFieldIndex.Code); }}
+		/// <summary>Creates a new AppRoleEntity.CreatedAt field instance</summary>
+		public static EntityField2 CreatedAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppRoleFieldIndex.CreatedAt); }}
+		/// <summary>Creates a new AppRoleEntity.Description field instance</summary>
+		public static EntityField2 Description { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppRoleFieldIndex.Description); }}
+		/// <summary>Creates a new AppRoleEntity.Id field instance</summary>
+		public static EntityField2 Id { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppRoleFieldIndex.Id); }}
+		/// <summary>Creates a new AppRoleEntity.Name field instance</summary>
+		public static EntityField2 Name { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppRoleFieldIndex.Name); }}
+	}
+
+	/// <summary>Field Creation Class for entity AppUserEntity</summary>
+	public partial class AppUserFields
+	{
+		/// <summary>Creates a new AppUserEntity.AccessFailedCount field instance</summary>
+		public static EntityField2 AccessFailedCount { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.AccessFailedCount); }}
+		/// <summary>Creates a new AppUserEntity.CreatedAt field instance</summary>
+		public static EntityField2 CreatedAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.CreatedAt); }}
+		/// <summary>Creates a new AppUserEntity.Email field instance</summary>
+		public static EntityField2 Email { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.Email); }}
+		/// <summary>Creates a new AppUserEntity.EmailConfirmed field instance</summary>
+		public static EntityField2 EmailConfirmed { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.EmailConfirmed); }}
+		/// <summary>Creates a new AppUserEntity.Id field instance</summary>
+		public static EntityField2 Id { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.Id); }}
+		/// <summary>Creates a new AppUserEntity.IsActive field instance</summary>
+		public static EntityField2 IsActive { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.IsActive); }}
+		/// <summary>Creates a new AppUserEntity.LastLoginAt field instance</summary>
+		public static EntityField2 LastLoginAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.LastLoginAt); }}
+		/// <summary>Creates a new AppUserEntity.LockoutEnd field instance</summary>
+		public static EntityField2 LockoutEnd { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.LockoutEnd); }}
+		/// <summary>Creates a new AppUserEntity.PasswordHash field instance</summary>
+		public static EntityField2 PasswordHash { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.PasswordHash); }}
+		/// <summary>Creates a new AppUserEntity.RoleId field instance</summary>
+		public static EntityField2 RoleId { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.RoleId); }}
+		/// <summary>Creates a new AppUserEntity.UpdatedAt field instance</summary>
+		public static EntityField2 UpdatedAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.UpdatedAt); }}
+		/// <summary>Creates a new AppUserEntity.UserName field instance</summary>
+		public static EntityField2 UserName { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(AppUserFieldIndex.UserName); }}
+	}
+
+	/// <summary>Field Creation Class for entity EmailVerificationTokenEntity</summary>
+	public partial class EmailVerificationTokenFields
+	{
+		/// <summary>Creates a new EmailVerificationTokenEntity.CreatedAt field instance</summary>
+		public static EntityField2 CreatedAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(EmailVerificationTokenFieldIndex.CreatedAt); }}
+		/// <summary>Creates a new EmailVerificationTokenEntity.ExpiresAt field instance</summary>
+		public static EntityField2 ExpiresAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(EmailVerificationTokenFieldIndex.ExpiresAt); }}
+		/// <summary>Creates a new EmailVerificationTokenEntity.Id field instance</summary>
+		public static EntityField2 Id { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(EmailVerificationTokenFieldIndex.Id); }}
+		/// <summary>Creates a new EmailVerificationTokenEntity.TokenHash field instance</summary>
+		public static EntityField2 TokenHash { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(EmailVerificationTokenFieldIndex.TokenHash); }}
+		/// <summary>Creates a new EmailVerificationTokenEntity.UsedAt field instance</summary>
+		public static EntityField2 UsedAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(EmailVerificationTokenFieldIndex.UsedAt); }}
+		/// <summary>Creates a new EmailVerificationTokenEntity.UserId field instance</summary>
+		public static EntityField2 UserId { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(EmailVerificationTokenFieldIndex.UserId); }}
+	}
+
 	/// <summary>Field Creation Class for entity NewtableEntity</summary>
 	public partial class NewtableFields
 	{
@@ -21,6 +82,23 @@ namespace Qtht.Data.HelperClasses
 		public static EntityField2 Id { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(NewtableFieldIndex.Id); }}
 	}
 
+	/// <summary>Field Creation Class for entity PasswordResetTokenEntity</summary>
+	public partial class PasswordResetTokenFields
+	{
+		/// <summary>Creates a new PasswordResetTokenEntity.CreatedAt field instance</summary>
+		public static EntityField2 CreatedAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(PasswordResetTokenFieldIndex.CreatedAt); }}
+		/// <summary>Creates a new PasswordResetTokenEntity.ExpiresAt field instance</summary>
+		public static EntityField2 ExpiresAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(PasswordResetTokenFieldIndex.ExpiresAt); }}
+		/// <summary>Creates a new PasswordResetTokenEntity.Id field instance</summary>
+		public static EntityField2 Id { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(PasswordResetTokenFieldIndex.Id); }}
+		/// <summary>Creates a new PasswordResetTokenEntity.TokenHash field instance</summary>
+		public static EntityField2 TokenHash { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(PasswordResetTokenFieldIndex.TokenHash); }}
+		/// <summary>Creates a new PasswordResetTokenEntity.UsedAt field instance</summary>
+		public static EntityField2 UsedAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(PasswordResetTokenFieldIndex.UsedAt); }}
+		/// <summary>Creates a new PasswordResetTokenEntity.UserId field instance</summary>
+		public static EntityField2 UserId { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(PasswordResetTokenFieldIndex.UserId); }}
+	}
+
 	/// <summary>Field Creation Class for entity ProductEntity</summary>
 	public partial class ProductFields
 	{
@@ -30,15 +108,29 @@ namespace Qtht.Data.HelperClasses
 		public static EntityField2 Name { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(ProductFieldIndex.Name); }}
 	}
 
-	/// <summary>Field Creation Class for entity UserEntity</summary>
-	public partial class UserFields
+	/// <summary>Field Creation Class for entity RefreshTokenEntity</summary>
+	public partial class RefreshTokenFields
 	{
-		/// <summary>Creates a new UserEntity.Id field instance</summary>
-		public static EntityField2 Id { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserFieldIndex.Id); }}
-		/// <summary>Creates a new UserEntity.RoleId field instance</summary>
-		public static EntityField2 RoleId { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserFieldIndex.RoleId); }}
-		/// <summary>Creates a new UserEntity.UserName field instance</summary>
-		public static EntityField2 UserName { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserFieldIndex.UserName); }}
+		/// <summary>Creates a new RefreshTokenEntity.CreatedAt field instance</summary>
+		public static EntityField2 CreatedAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.CreatedAt); }}
+		/// <summary>Creates a new RefreshTokenEntity.CreatedByIp field instance</summary>
+		public static EntityField2 CreatedByIp { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.CreatedByIp); }}
+		/// <summary>Creates a new RefreshTokenEntity.ExpiresAt field instance</summary>
+		public static EntityField2 ExpiresAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.ExpiresAt); }}
+		/// <summary>Creates a new RefreshTokenEntity.Id field instance</summary>
+		public static EntityField2 Id { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.Id); }}
+		/// <summary>Creates a new RefreshTokenEntity.ReplacedBy field instance</summary>
+		public static EntityField2 ReplacedBy { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.ReplacedBy); }}
+		/// <summary>Creates a new RefreshTokenEntity.RevokedAt field instance</summary>
+		public static EntityField2 RevokedAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.RevokedAt); }}
+		/// <summary>Creates a new RefreshTokenEntity.RevokedByIp field instance</summary>
+		public static EntityField2 RevokedByIp { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.RevokedByIp); }}
+		/// <summary>Creates a new RefreshTokenEntity.RevokedReason field instance</summary>
+		public static EntityField2 RevokedReason { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.RevokedReason); }}
+		/// <summary>Creates a new RefreshTokenEntity.TokenHash field instance</summary>
+		public static EntityField2 TokenHash { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.TokenHash); }}
+		/// <summary>Creates a new RefreshTokenEntity.UserId field instance</summary>
+		public static EntityField2 UserId { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.UserId); }}
 	}
 	
 

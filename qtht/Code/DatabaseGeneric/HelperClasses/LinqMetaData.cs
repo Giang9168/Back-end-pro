@@ -44,12 +44,20 @@ namespace Qtht.Data.Linq
 		{
 			switch((Qtht.Data.EntityType)typeOfEntity)
 			{
+				case Qtht.Data.EntityType.AppRoleEntity:
+					return this.AppRole;
+				case Qtht.Data.EntityType.AppUserEntity:
+					return this.AppUser;
+				case Qtht.Data.EntityType.EmailVerificationTokenEntity:
+					return this.EmailVerificationToken;
 				case Qtht.Data.EntityType.NewtableEntity:
 					return this.Newtable;
+				case Qtht.Data.EntityType.PasswordResetTokenEntity:
+					return this.PasswordResetToken;
 				case Qtht.Data.EntityType.ProductEntity:
 					return this.Product;
-				case Qtht.Data.EntityType.UserEntity:
-					return this.User;
+				case Qtht.Data.EntityType.RefreshTokenEntity:
+					return this.RefreshToken;
 				default:
 					return null;
 			}
@@ -76,14 +84,26 @@ namespace Qtht.Data.Linq
 			return new DataSource2<TEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse);
 		}
 
+		/// <summary>returns the datasource to use in a Linq query when targeting AppRoleEntity instances in the database.</summary>
+		public DataSource2<AppRoleEntity> AppRole {	get { return new DataSource2<AppRoleEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse); } }
+		
+		/// <summary>returns the datasource to use in a Linq query when targeting AppUserEntity instances in the database.</summary>
+		public DataSource2<AppUserEntity> AppUser {	get { return new DataSource2<AppUserEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse); } }
+		
+		/// <summary>returns the datasource to use in a Linq query when targeting EmailVerificationTokenEntity instances in the database.</summary>
+		public DataSource2<EmailVerificationTokenEntity> EmailVerificationToken {	get { return new DataSource2<EmailVerificationTokenEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse); } }
+		
 		/// <summary>returns the datasource to use in a Linq query when targeting NewtableEntity instances in the database.</summary>
 		public DataSource2<NewtableEntity> Newtable {	get { return new DataSource2<NewtableEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse); } }
+		
+		/// <summary>returns the datasource to use in a Linq query when targeting PasswordResetTokenEntity instances in the database.</summary>
+		public DataSource2<PasswordResetTokenEntity> PasswordResetToken {	get { return new DataSource2<PasswordResetTokenEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse); } }
 		
 		/// <summary>returns the datasource to use in a Linq query when targeting ProductEntity instances in the database.</summary>
 		public DataSource2<ProductEntity> Product {	get { return new DataSource2<ProductEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse); } }
 		
-		/// <summary>returns the datasource to use in a Linq query when targeting UserEntity instances in the database.</summary>
-		public DataSource2<UserEntity> User {	get { return new DataSource2<UserEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse); } }
+		/// <summary>returns the datasource to use in a Linq query when targeting RefreshTokenEntity instances in the database.</summary>
+		public DataSource2<RefreshTokenEntity> RefreshToken {	get { return new DataSource2<RefreshTokenEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse); } }
 		
 
 

@@ -175,11 +175,11 @@
     <EntityDefinitions>
       <EntityDefinition Name="AppRole" ObjectID="1359e704-9bac-4384-8f0f-b4bdc1ac237a">
         <Fields>
-          <Field Name="Code" Type="string" MaxLength="50" />
+          <Field Name="Code" Type="string" MaxLength="1073741824" />
           <Field Name="CreatedAt" Type="datetime" />
           <Field Name="Description" Type="string" IsOptional="true" MaxLength="1073741824" />
           <Field Name="Id" Type="guid" IsPrimaryKey="true" />
-          <Field Name="Name" Type="string" MaxLength="100" />
+          <Field Name="Name" Type="string" MaxLength="1073741824" />
         </Fields>
         <UniqueConstraints>
           <UniqueConstraint Name="AppRoleCodeKey">
@@ -191,16 +191,16 @@
         <Fields>
           <Field Name="AccessFailedCount" Type="int" Precision="10" />
           <Field Name="CreatedAt" Type="datetime" />
-          <Field Name="Email" Type="string" IsOptional="true" MaxLength="255" />
+          <Field Name="Email" Type="string" IsOptional="true" MaxLength="1073741824" />
           <Field Name="EmailConfirmed" Type="bool" />
           <Field Name="Id" Type="guid" IsPrimaryKey="true" />
           <Field Name="IsActive" Type="bool" />
           <Field Name="LastLoginAt" Type="datetime" IsOptional="true" />
           <Field Name="LockoutEnd" Type="datetime" IsOptional="true" />
-          <Field Name="PasswordHash" Type="string" MaxLength="255" />
+          <Field Name="PasswordHash" Type="string" MaxLength="1073741824" />
           <Field Name="RoleId" Type="guid" />
           <Field Name="UpdatedAt" Type="datetime" IsOptional="true" />
-          <Field Name="UserName" Type="string" MaxLength="100" />
+          <Field Name="UserName" Type="string" MaxLength="1073741824" />
         </Fields>
       </EntityDefinition>
       <EntityDefinition Name="EmailVerificationToken" ObjectID="ff07a558-b4ee-4db4-a9e9-8ab6b9f8ca1f">
@@ -208,7 +208,7 @@
           <Field Name="CreatedAt" Type="datetime" />
           <Field Name="ExpiresAt" Type="datetime" />
           <Field Name="Id" Type="guid" IsPrimaryKey="true" />
-          <Field Name="TokenHash" Type="string" MaxLength="128" />
+          <Field Name="TokenHash" Type="string" MaxLength="1073741824" />
           <Field Name="UsedAt" Type="datetime" IsOptional="true" />
           <Field Name="UserId" Type="guid" />
         </Fields>
@@ -230,7 +230,7 @@
           <Field Name="CreatedAt" Type="datetime" />
           <Field Name="ExpiresAt" Type="datetime" />
           <Field Name="Id" Type="guid" IsPrimaryKey="true" />
-          <Field Name="TokenHash" Type="string" MaxLength="128" />
+          <Field Name="TokenHash" Type="string" MaxLength="1073741824" />
           <Field Name="UsedAt" Type="datetime" IsOptional="true" />
           <Field Name="UserId" Type="guid" />
         </Fields>
@@ -249,14 +249,14 @@
       <EntityDefinition Name="RefreshToken" ObjectID="36ac7a6d-8ea7-4a9f-8fc7-1844f12dd353">
         <Fields>
           <Field Name="CreatedAt" Type="datetime" />
-          <Field Name="CreatedByIp" Type="string" IsOptional="true" MaxLength="45" />
+          <Field Name="CreatedByIp" Type="string" IsOptional="true" MaxLength="1073741824" />
           <Field Name="ExpiresAt" Type="datetime" />
           <Field Name="Id" Type="guid" IsPrimaryKey="true" />
           <Field Name="ReplacedBy" Type="guid" IsOptional="true" />
           <Field Name="RevokedAt" Type="datetime" IsOptional="true" />
           <Field Name="RevokedByIp" Type="string" IsOptional="true" MaxLength="1073741824" />
-          <Field Name="RevokedReason" Type="string" IsOptional="true" MaxLength="50" />
-          <Field Name="TokenHash" Type="string" MaxLength="128" />
+          <Field Name="RevokedReason" Type="string" IsOptional="true" MaxLength="1073741824" />
+          <Field Name="TokenHash" Type="string" MaxLength="1073741824" />
           <Field Name="UserId" Type="guid" />
         </Fields>
         <UniqueConstraints>
@@ -312,7 +312,7 @@
       <Catalogs>
         <Catalog Name="postgres">
           <Schemas>
-            <Schema Name="public" SyncSource="2" LastSyncWithDatabase="2026-07-20T07:45:56.8908734Z">
+            <Schema Name="public" SyncSource="2" LastSyncWithDatabase="2026-07-20T07:38:25.4520013Z">
               <Sequences>
                 <Sequence Name="newtable_id_seq" />
               </Sequences>
@@ -321,8 +321,8 @@
                   <PkConstraintName Name="app_role_pkey" />
                   <Fields>
                     <Field Name="id" Ordinal="1" IsPrimaryKey="true" HasDefaultValue="true" DefaultValue="gen_random_uuid()" DbType="28" />
-                    <Field Name="code" Ordinal="2" DbType="24" Length="50" />
-                    <Field Name="name" Ordinal="3" DbType="24" Length="100" />
+                    <Field Name="code" Ordinal="2" DbType="19" Length="1073741824" />
+                    <Field Name="name" Ordinal="3" DbType="19" Length="1073741824" />
                     <Field Name="description" Ordinal="4" IsOptional="true" DbType="19" Length="1073741824" />
                     <Field Name="created_at" Ordinal="5" HasDefaultValue="true" DefaultValue="now()" DbType="23" />
                   </Fields>
@@ -336,9 +336,9 @@
                   <PkConstraintName Name="app_user_pkey" />
                   <Fields>
                     <Field Name="id" Ordinal="1" IsPrimaryKey="true" HasDefaultValue="true" DefaultValue="gen_random_uuid()" DbType="28" />
-                    <Field Name="user_name" Ordinal="2" DbType="24" Length="100" />
-                    <Field Name="email" Ordinal="3" IsOptional="true" DbType="24" Length="255" />
-                    <Field Name="password_hash" Ordinal="4" DbType="24" Length="255" />
+                    <Field Name="user_name" Ordinal="2" DbType="19" Length="1073741824" />
+                    <Field Name="email" Ordinal="3" IsOptional="true" DbType="19" Length="1073741824" />
+                    <Field Name="password_hash" Ordinal="4" DbType="19" Length="1073741824" />
                     <Field Name="role_id" Ordinal="5" DbType="28" />
                     <Field Name="is_active" Ordinal="6" HasDefaultValue="true" DefaultValue="true" DbType="0" />
                     <Field Name="email_confirmed" Ordinal="7" HasDefaultValue="true" DefaultValue="false" DbType="0" />
@@ -354,7 +354,7 @@
                   <Fields>
                     <Field Name="id" Ordinal="1" IsPrimaryKey="true" HasDefaultValue="true" DefaultValue="gen_random_uuid()" DbType="28" />
                     <Field Name="user_id" Ordinal="2" DbType="28" />
-                    <Field Name="token_hash" Ordinal="3" DbType="24" Length="128" />
+                    <Field Name="token_hash" Ordinal="3" DbType="19" Length="1073741824" />
                     <Field Name="expires_at" Ordinal="4" DbType="23" />
                     <Field Name="used_at" Ordinal="5" IsOptional="true" DbType="23" />
                     <Field Name="created_at" Ordinal="6" HasDefaultValue="true" DefaultValue="now()" DbType="23" />
@@ -378,7 +378,7 @@
                   <Fields>
                     <Field Name="id" Ordinal="1" IsPrimaryKey="true" HasDefaultValue="true" DefaultValue="gen_random_uuid()" DbType="28" />
                     <Field Name="user_id" Ordinal="2" DbType="28" />
-                    <Field Name="token_hash" Ordinal="3" DbType="24" Length="128" />
+                    <Field Name="token_hash" Ordinal="3" DbType="19" Length="1073741824" />
                     <Field Name="expires_at" Ordinal="4" DbType="23" />
                     <Field Name="used_at" Ordinal="5" IsOptional="true" DbType="23" />
                     <Field Name="created_at" Ordinal="6" HasDefaultValue="true" DefaultValue="now()" DbType="23" />
@@ -401,13 +401,13 @@
                   <Fields>
                     <Field Name="id" Ordinal="1" IsPrimaryKey="true" HasDefaultValue="true" DefaultValue="gen_random_uuid()" DbType="28" />
                     <Field Name="user_id" Ordinal="2" DbType="28" />
-                    <Field Name="token_hash" Ordinal="3" DbType="24" Length="128" />
+                    <Field Name="token_hash" Ordinal="3" DbType="19" Length="1073741824" />
                     <Field Name="expires_at" Ordinal="4" DbType="23" />
                     <Field Name="created_at" Ordinal="5" HasDefaultValue="true" DefaultValue="now()" DbType="23" />
-                    <Field Name="created_by_ip" Ordinal="6" IsOptional="true" DbType="24" Length="45" />
+                    <Field Name="created_by_ip" Ordinal="6" IsOptional="true" DbType="19" Length="1073741824" />
                     <Field Name="revoked_at" Ordinal="7" IsOptional="true" DbType="23" />
                     <Field Name="revoked_by_ip" Ordinal="8" IsOptional="true" DbType="19" Length="1073741824" />
-                    <Field Name="revoked_reason" Ordinal="9" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="revoked_reason" Ordinal="9" IsOptional="true" DbType="19" Length="1073741824" />
                     <Field Name="replaced_by" Ordinal="10" IsOptional="true" DbType="28" />
                   </Fields>
                   <UniqueConstraints>

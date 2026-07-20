@@ -14,12 +14,20 @@ namespace Qtht.Data
 	/// <summary>Enum definition for all the entity types defined in this namespace. Used by the entityfields factory.</summary>
 	public enum EntityType
 	{
+		///<summary>AppRole</summary>
+		AppRoleEntity,
+		///<summary>AppUser</summary>
+		AppUserEntity,
+		///<summary>EmailVerificationToken</summary>
+		EmailVerificationTokenEntity,
 		///<summary>Newtable</summary>
 		NewtableEntity,
+		///<summary>PasswordResetToken</summary>
+		PasswordResetTokenEntity,
 		///<summary>Product</summary>
 		ProductEntity,
-		///<summary>User</summary>
-		UserEntity
+		///<summary>RefreshToken</summary>
+		RefreshTokenEntity
 	}
 
 

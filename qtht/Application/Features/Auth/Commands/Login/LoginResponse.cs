@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace Application.Features.Auth.Commands.Login;
 
-namespace Application.Features.Auth.Commands.Login
+// Không có PasswordHash — DTO là cái van chặn field nhạy cảm lọt ra API
+public record LoginResponse
 {
-   public record class LoginResponse
-    {
-        public required string UserId { get; set; }
-        public required string Username { get; set; }
-        public required string Role { get; set; }
-        public required string Email { get; set; }
-        public required string Token { get; set; }
-        public required string RefreshToken { get; set; }
-        public DateTime ExpiresAt { get; set; }
-    }
+    public required Guid UserId { get; init; }
+    public required string Username { get; init; }
+    public string? Email { get; init; }
+
+    /// <summary>Mã vai trò (ADMIN, USER), không phải Id.</summary>
+    public required string Role { get; init; }
+
+    public required string Token { get; init; }
+    public required string RefreshToken { get; init; }
+    public DateTime ExpiresAt { get; init; }
 }

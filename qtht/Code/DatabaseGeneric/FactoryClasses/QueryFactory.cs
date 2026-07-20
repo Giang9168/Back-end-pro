@@ -18,14 +18,26 @@ namespace Qtht.Data.FactoryClasses
 	/// <summary>Factory class to produce DynamicQuery instances and EntityQuery instances</summary>
 	public partial class QueryFactory : QueryFactoryBase2
 	{
+		/// <summary>Creates and returns a new EntityQuery for the AppRole entity</summary>
+		public EntityQuery<AppRoleEntity> AppRole { get { return Create<AppRoleEntity>(); } }
+
+		/// <summary>Creates and returns a new EntityQuery for the AppUser entity</summary>
+		public EntityQuery<AppUserEntity> AppUser { get { return Create<AppUserEntity>(); } }
+
+		/// <summary>Creates and returns a new EntityQuery for the EmailVerificationToken entity</summary>
+		public EntityQuery<EmailVerificationTokenEntity> EmailVerificationToken { get { return Create<EmailVerificationTokenEntity>(); } }
+
 		/// <summary>Creates and returns a new EntityQuery for the Newtable entity</summary>
 		public EntityQuery<NewtableEntity> Newtable { get { return Create<NewtableEntity>(); } }
+
+		/// <summary>Creates and returns a new EntityQuery for the PasswordResetToken entity</summary>
+		public EntityQuery<PasswordResetTokenEntity> PasswordResetToken { get { return Create<PasswordResetTokenEntity>(); } }
 
 		/// <summary>Creates and returns a new EntityQuery for the Product entity</summary>
 		public EntityQuery<ProductEntity> Product { get { return Create<ProductEntity>(); } }
 
-		/// <summary>Creates and returns a new EntityQuery for the User entity</summary>
-		public EntityQuery<UserEntity> User { get { return Create<UserEntity>(); } }
+		/// <summary>Creates and returns a new EntityQuery for the RefreshToken entity</summary>
+		public EntityQuery<RefreshTokenEntity> RefreshToken { get { return Create<RefreshTokenEntity>(); } }
 
 		/// <inheritdoc/>
 		protected override IElementCreatorCore CreateElementCreator() { return new ElementCreator(); }

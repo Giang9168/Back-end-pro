@@ -36,9 +36,54 @@ namespace Qtht.Data.DatabaseSpecific
 		private void Init()
 		{
 			this.InitClass();
+			InitAppRoleEntityMappings();
+			InitAppUserEntityMappings();
+			InitEmailVerificationTokenEntityMappings();
 			InitNewtableEntityMappings();
+			InitPasswordResetTokenEntityMappings();
 			InitProductEntityMappings();
-			InitUserEntityMappings();
+			InitRefreshTokenEntityMappings();
+		}
+
+		/// <summary>Inits AppRoleEntity's mappings</summary>
+		private void InitAppRoleEntityMappings()
+		{
+			this.AddElementMapping("AppRoleEntity", @"postgres", @"public", "app_role", 5, 0);
+			this.AddElementFieldMapping("AppRoleEntity", "Code", "code", false, "Varchar", 50, 0, 0, false, "", null, typeof(System.String), 0);
+			this.AddElementFieldMapping("AppRoleEntity", "CreatedAt", "created_at", false, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("AppRoleEntity", "Description", "description", true, "Text", 1073741824, 0, 0, false, "", null, typeof(System.String), 2);
+			this.AddElementFieldMapping("AppRoleEntity", "Id", "id", false, "Uuid", 0, 0, 0, false, "", null, typeof(System.Guid), 3);
+			this.AddElementFieldMapping("AppRoleEntity", "Name", "name", false, "Varchar", 100, 0, 0, false, "", null, typeof(System.String), 4);
+		}
+
+		/// <summary>Inits AppUserEntity's mappings</summary>
+		private void InitAppUserEntityMappings()
+		{
+			this.AddElementMapping("AppUserEntity", @"postgres", @"public", "app_user", 12, 0);
+			this.AddElementFieldMapping("AppUserEntity", "AccessFailedCount", "access_failed_count", false, "Integer", 0, 10, 0, false, "", null, typeof(System.Int32), 0);
+			this.AddElementFieldMapping("AppUserEntity", "CreatedAt", "created_at", false, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("AppUserEntity", "Email", "email", true, "Varchar", 255, 0, 0, false, "", null, typeof(System.String), 2);
+			this.AddElementFieldMapping("AppUserEntity", "EmailConfirmed", "email_confirmed", false, "Boolean", 0, 0, 0, false, "", null, typeof(System.Boolean), 3);
+			this.AddElementFieldMapping("AppUserEntity", "Id", "id", false, "Uuid", 0, 0, 0, false, "", null, typeof(System.Guid), 4);
+			this.AddElementFieldMapping("AppUserEntity", "IsActive", "is_active", false, "Boolean", 0, 0, 0, false, "", null, typeof(System.Boolean), 5);
+			this.AddElementFieldMapping("AppUserEntity", "LastLoginAt", "last_login_at", true, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 6);
+			this.AddElementFieldMapping("AppUserEntity", "LockoutEnd", "lockout_end", true, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 7);
+			this.AddElementFieldMapping("AppUserEntity", "PasswordHash", "password_hash", false, "Varchar", 255, 0, 0, false, "", null, typeof(System.String), 8);
+			this.AddElementFieldMapping("AppUserEntity", "RoleId", "role_id", false, "Uuid", 0, 0, 0, false, "", null, typeof(System.Guid), 9);
+			this.AddElementFieldMapping("AppUserEntity", "UpdatedAt", "updated_at", true, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 10);
+			this.AddElementFieldMapping("AppUserEntity", "UserName", "user_name", false, "Varchar", 100, 0, 0, false, "", null, typeof(System.String), 11);
+		}
+
+		/// <summary>Inits EmailVerificationTokenEntity's mappings</summary>
+		private void InitEmailVerificationTokenEntityMappings()
+		{
+			this.AddElementMapping("EmailVerificationTokenEntity", @"postgres", @"public", "email_verification_token", 6, 0);
+			this.AddElementFieldMapping("EmailVerificationTokenEntity", "CreatedAt", "created_at", false, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("EmailVerificationTokenEntity", "ExpiresAt", "expires_at", false, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("EmailVerificationTokenEntity", "Id", "id", false, "Uuid", 0, 0, 0, false, "", null, typeof(System.Guid), 2);
+			this.AddElementFieldMapping("EmailVerificationTokenEntity", "TokenHash", "token_hash", false, "Varchar", 128, 0, 0, false, "", null, typeof(System.String), 3);
+			this.AddElementFieldMapping("EmailVerificationTokenEntity", "UsedAt", "used_at", true, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 4);
+			this.AddElementFieldMapping("EmailVerificationTokenEntity", "UserId", "user_id", false, "Uuid", 0, 0, 0, false, "", null, typeof(System.Guid), 5);
 		}
 
 		/// <summary>Inits NewtableEntity's mappings</summary>
@@ -50,6 +95,18 @@ namespace Qtht.Data.DatabaseSpecific
 			this.AddElementFieldMapping("NewtableEntity", "Id", "id", false, "Integer", 0, 10, 0, true, "public.newtable_id_seq", null, typeof(System.Int32), 2);
 		}
 
+		/// <summary>Inits PasswordResetTokenEntity's mappings</summary>
+		private void InitPasswordResetTokenEntityMappings()
+		{
+			this.AddElementMapping("PasswordResetTokenEntity", @"postgres", @"public", "password_reset_token", 6, 0);
+			this.AddElementFieldMapping("PasswordResetTokenEntity", "CreatedAt", "created_at", false, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("PasswordResetTokenEntity", "ExpiresAt", "expires_at", false, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("PasswordResetTokenEntity", "Id", "id", false, "Uuid", 0, 0, 0, false, "", null, typeof(System.Guid), 2);
+			this.AddElementFieldMapping("PasswordResetTokenEntity", "TokenHash", "token_hash", false, "Varchar", 128, 0, 0, false, "", null, typeof(System.String), 3);
+			this.AddElementFieldMapping("PasswordResetTokenEntity", "UsedAt", "used_at", true, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 4);
+			this.AddElementFieldMapping("PasswordResetTokenEntity", "UserId", "user_id", false, "Uuid", 0, 0, 0, false, "", null, typeof(System.Guid), 5);
+		}
+
 		/// <summary>Inits ProductEntity's mappings</summary>
 		private void InitProductEntityMappings()
 		{
@@ -58,13 +115,20 @@ namespace Qtht.Data.DatabaseSpecific
 			this.AddElementFieldMapping("ProductEntity", "Name", "name", false, "Varchar", 10485760, 0, 0, false, "", null, typeof(System.String), 1);
 		}
 
-		/// <summary>Inits UserEntity's mappings</summary>
-		private void InitUserEntityMappings()
+		/// <summary>Inits RefreshTokenEntity's mappings</summary>
+		private void InitRefreshTokenEntityMappings()
 		{
-			this.AddElementMapping("UserEntity", @"postgres", @"public", "user", 3, 0);
-			this.AddElementFieldMapping("UserEntity", "Id", "id", false, "Varchar", 10485760, 0, 0, false, "", null, typeof(System.String), 0);
-			this.AddElementFieldMapping("UserEntity", "RoleId", "role_id", true, "Varchar", 10485760, 0, 0, false, "", null, typeof(System.String), 1);
-			this.AddElementFieldMapping("UserEntity", "UserName", "user_name", true, "Varchar", 10485760, 0, 0, false, "", null, typeof(System.String), 2);
+			this.AddElementMapping("RefreshTokenEntity", @"postgres", @"public", "refresh_token", 10, 0);
+			this.AddElementFieldMapping("RefreshTokenEntity", "CreatedAt", "created_at", false, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("RefreshTokenEntity", "CreatedByIp", "created_by_ip", true, "Varchar", 45, 0, 0, false, "", null, typeof(System.String), 1);
+			this.AddElementFieldMapping("RefreshTokenEntity", "ExpiresAt", "expires_at", false, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
+			this.AddElementFieldMapping("RefreshTokenEntity", "Id", "id", false, "Uuid", 0, 0, 0, false, "", null, typeof(System.Guid), 3);
+			this.AddElementFieldMapping("RefreshTokenEntity", "ReplacedBy", "replaced_by", true, "Uuid", 0, 0, 0, false, "", null, typeof(System.Guid), 4);
+			this.AddElementFieldMapping("RefreshTokenEntity", "RevokedAt", "revoked_at", true, "TimestampTz", 0, 0, 0, false, "", null, typeof(System.DateTime), 5);
+			this.AddElementFieldMapping("RefreshTokenEntity", "RevokedByIp", "revoked_by_ip", true, "Text", 1073741824, 0, 0, false, "", null, typeof(System.String), 6);
+			this.AddElementFieldMapping("RefreshTokenEntity", "RevokedReason", "revoked_reason", true, "Varchar", 50, 0, 0, false, "", null, typeof(System.String), 7);
+			this.AddElementFieldMapping("RefreshTokenEntity", "TokenHash", "token_hash", false, "Varchar", 128, 0, 0, false, "", null, typeof(System.String), 8);
+			this.AddElementFieldMapping("RefreshTokenEntity", "UserId", "user_id", false, "Uuid", 0, 0, 0, false, "", null, typeof(System.Guid), 9);
 		}
 
 	}

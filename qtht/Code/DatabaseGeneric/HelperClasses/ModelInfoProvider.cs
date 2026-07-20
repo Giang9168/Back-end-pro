@@ -41,10 +41,55 @@ namespace Qtht.Data.HelperClasses
 		private void Init()
 		{
 			this.InitClass();
+			InitAppRoleEntityInfo();
+			InitAppUserEntityInfo();
+			InitEmailVerificationTokenEntityInfo();
 			InitNewtableEntityInfo();
+			InitPasswordResetTokenEntityInfo();
 			InitProductEntityInfo();
-			InitUserEntityInfo();
+			InitRefreshTokenEntityInfo();
 			this.BuildInternalStructures();
+		}
+
+		/// <summary>Inits AppRoleEntity's info objects</summary>
+		private void InitAppRoleEntityInfo()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(AppRoleFieldIndex), "AppRoleEntity");
+			this.AddElementFieldInfo("AppRoleEntity", "Code", typeof(System.String), false, false, false, false,  (int)AppRoleFieldIndex.Code, 50, 0, 0);
+			this.AddElementFieldInfo("AppRoleEntity", "CreatedAt", typeof(System.DateTime), false, false, false, false,  (int)AppRoleFieldIndex.CreatedAt, 0, 0, 0);
+			this.AddElementFieldInfo("AppRoleEntity", "Description", typeof(System.String), false, false, false, true,  (int)AppRoleFieldIndex.Description, 1073741824, 0, 0);
+			this.AddElementFieldInfo("AppRoleEntity", "Id", typeof(System.Guid), true, false, false, false,  (int)AppRoleFieldIndex.Id, 0, 0, 0);
+			this.AddElementFieldInfo("AppRoleEntity", "Name", typeof(System.String), false, false, false, false,  (int)AppRoleFieldIndex.Name, 100, 0, 0);
+		}
+
+		/// <summary>Inits AppUserEntity's info objects</summary>
+		private void InitAppUserEntityInfo()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(AppUserFieldIndex), "AppUserEntity");
+			this.AddElementFieldInfo("AppUserEntity", "AccessFailedCount", typeof(System.Int32), false, false, false, false,  (int)AppUserFieldIndex.AccessFailedCount, 0, 0, 10);
+			this.AddElementFieldInfo("AppUserEntity", "CreatedAt", typeof(System.DateTime), false, false, false, false,  (int)AppUserFieldIndex.CreatedAt, 0, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "Email", typeof(System.String), false, false, false, true,  (int)AppUserFieldIndex.Email, 255, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "EmailConfirmed", typeof(System.Boolean), false, false, false, false,  (int)AppUserFieldIndex.EmailConfirmed, 0, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "Id", typeof(System.Guid), true, false, false, false,  (int)AppUserFieldIndex.Id, 0, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "IsActive", typeof(System.Boolean), false, false, false, false,  (int)AppUserFieldIndex.IsActive, 0, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "LastLoginAt", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AppUserFieldIndex.LastLoginAt, 0, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "LockoutEnd", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AppUserFieldIndex.LockoutEnd, 0, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "PasswordHash", typeof(System.String), false, false, false, false,  (int)AppUserFieldIndex.PasswordHash, 255, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "RoleId", typeof(System.Guid), false, true, false, false,  (int)AppUserFieldIndex.RoleId, 0, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "UpdatedAt", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AppUserFieldIndex.UpdatedAt, 0, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "UserName", typeof(System.String), false, false, false, false,  (int)AppUserFieldIndex.UserName, 100, 0, 0);
+		}
+
+		/// <summary>Inits EmailVerificationTokenEntity's info objects</summary>
+		private void InitEmailVerificationTokenEntityInfo()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(EmailVerificationTokenFieldIndex), "EmailVerificationTokenEntity");
+			this.AddElementFieldInfo("EmailVerificationTokenEntity", "CreatedAt", typeof(System.DateTime), false, false, false, false,  (int)EmailVerificationTokenFieldIndex.CreatedAt, 0, 0, 0);
+			this.AddElementFieldInfo("EmailVerificationTokenEntity", "ExpiresAt", typeof(System.DateTime), false, false, false, false,  (int)EmailVerificationTokenFieldIndex.ExpiresAt, 0, 0, 0);
+			this.AddElementFieldInfo("EmailVerificationTokenEntity", "Id", typeof(System.Guid), true, false, false, false,  (int)EmailVerificationTokenFieldIndex.Id, 0, 0, 0);
+			this.AddElementFieldInfo("EmailVerificationTokenEntity", "TokenHash", typeof(System.String), false, false, false, false,  (int)EmailVerificationTokenFieldIndex.TokenHash, 128, 0, 0);
+			this.AddElementFieldInfo("EmailVerificationTokenEntity", "UsedAt", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)EmailVerificationTokenFieldIndex.UsedAt, 0, 0, 0);
+			this.AddElementFieldInfo("EmailVerificationTokenEntity", "UserId", typeof(System.Guid), false, true, false, false,  (int)EmailVerificationTokenFieldIndex.UserId, 0, 0, 0);
 		}
 
 		/// <summary>Inits NewtableEntity's info objects</summary>
@@ -56,6 +101,18 @@ namespace Qtht.Data.HelperClasses
 			this.AddElementFieldInfo("NewtableEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)NewtableFieldIndex.Id, 0, 0, 10);
 		}
 
+		/// <summary>Inits PasswordResetTokenEntity's info objects</summary>
+		private void InitPasswordResetTokenEntityInfo()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(PasswordResetTokenFieldIndex), "PasswordResetTokenEntity");
+			this.AddElementFieldInfo("PasswordResetTokenEntity", "CreatedAt", typeof(System.DateTime), false, false, false, false,  (int)PasswordResetTokenFieldIndex.CreatedAt, 0, 0, 0);
+			this.AddElementFieldInfo("PasswordResetTokenEntity", "ExpiresAt", typeof(System.DateTime), false, false, false, false,  (int)PasswordResetTokenFieldIndex.ExpiresAt, 0, 0, 0);
+			this.AddElementFieldInfo("PasswordResetTokenEntity", "Id", typeof(System.Guid), true, false, false, false,  (int)PasswordResetTokenFieldIndex.Id, 0, 0, 0);
+			this.AddElementFieldInfo("PasswordResetTokenEntity", "TokenHash", typeof(System.String), false, false, false, false,  (int)PasswordResetTokenFieldIndex.TokenHash, 128, 0, 0);
+			this.AddElementFieldInfo("PasswordResetTokenEntity", "UsedAt", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)PasswordResetTokenFieldIndex.UsedAt, 0, 0, 0);
+			this.AddElementFieldInfo("PasswordResetTokenEntity", "UserId", typeof(System.Guid), false, true, false, false,  (int)PasswordResetTokenFieldIndex.UserId, 0, 0, 0);
+		}
+
 		/// <summary>Inits ProductEntity's info objects</summary>
 		private void InitProductEntityInfo()
 		{
@@ -64,13 +121,20 @@ namespace Qtht.Data.HelperClasses
 			this.AddElementFieldInfo("ProductEntity", "Name", typeof(System.String), false, false, false, false,  (int)ProductFieldIndex.Name, 10485760, 0, 0);
 		}
 
-		/// <summary>Inits UserEntity's info objects</summary>
-		private void InitUserEntityInfo()
+		/// <summary>Inits RefreshTokenEntity's info objects</summary>
+		private void InitRefreshTokenEntityInfo()
 		{
-			this.AddFieldIndexEnumForElementName(typeof(UserFieldIndex), "UserEntity");
-			this.AddElementFieldInfo("UserEntity", "Id", typeof(System.String), true, false, false, false,  (int)UserFieldIndex.Id, 10485760, 0, 0);
-			this.AddElementFieldInfo("UserEntity", "RoleId", typeof(System.String), false, false, false, true,  (int)UserFieldIndex.RoleId, 10485760, 0, 0);
-			this.AddElementFieldInfo("UserEntity", "UserName", typeof(System.String), false, false, false, true,  (int)UserFieldIndex.UserName, 10485760, 0, 0);
+			this.AddFieldIndexEnumForElementName(typeof(RefreshTokenFieldIndex), "RefreshTokenEntity");
+			this.AddElementFieldInfo("RefreshTokenEntity", "CreatedAt", typeof(System.DateTime), false, false, false, false,  (int)RefreshTokenFieldIndex.CreatedAt, 0, 0, 0);
+			this.AddElementFieldInfo("RefreshTokenEntity", "CreatedByIp", typeof(System.String), false, false, false, true,  (int)RefreshTokenFieldIndex.CreatedByIp, 45, 0, 0);
+			this.AddElementFieldInfo("RefreshTokenEntity", "ExpiresAt", typeof(System.DateTime), false, false, false, false,  (int)RefreshTokenFieldIndex.ExpiresAt, 0, 0, 0);
+			this.AddElementFieldInfo("RefreshTokenEntity", "Id", typeof(System.Guid), true, false, false, false,  (int)RefreshTokenFieldIndex.Id, 0, 0, 0);
+			this.AddElementFieldInfo("RefreshTokenEntity", "ReplacedBy", typeof(Nullable<System.Guid>), false, true, false, true,  (int)RefreshTokenFieldIndex.ReplacedBy, 0, 0, 0);
+			this.AddElementFieldInfo("RefreshTokenEntity", "RevokedAt", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)RefreshTokenFieldIndex.RevokedAt, 0, 0, 0);
+			this.AddElementFieldInfo("RefreshTokenEntity", "RevokedByIp", typeof(System.String), false, false, false, true,  (int)RefreshTokenFieldIndex.RevokedByIp, 1073741824, 0, 0);
+			this.AddElementFieldInfo("RefreshTokenEntity", "RevokedReason", typeof(System.String), false, false, false, true,  (int)RefreshTokenFieldIndex.RevokedReason, 50, 0, 0);
+			this.AddElementFieldInfo("RefreshTokenEntity", "TokenHash", typeof(System.String), false, false, false, false,  (int)RefreshTokenFieldIndex.TokenHash, 128, 0, 0);
+			this.AddElementFieldInfo("RefreshTokenEntity", "UserId", typeof(System.Guid), false, true, false, false,  (int)RefreshTokenFieldIndex.UserId, 0, 0, 0);
 		}
 	}
 }
