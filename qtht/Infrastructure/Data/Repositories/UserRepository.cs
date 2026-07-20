@@ -48,6 +48,22 @@ public sealed class UserRepository : IUserRepository
         return entity is null ? null : ToDomain(entity);
     }
 
+    public async Task<User> AddAsync(User user, CancellationToken cancellationToken = default)
+    {
+        using var adapter = _adapterFactory.Create();
+
+        var entity = new UserEntity
+        {
+            Id = user.Id,
+            UserName = user.UserName,
+            RoleId = user.RoleId,
+            IsNew = true
+        };
+
+        await adapter.SaveEntityAsync(entity, cancellationToken);
+        return ToDomain(entity);
+    }
+
     /// <summary>Ranh giới ORM: kiểu LLBLGen dừng lại ở đây, không lọt ra ngoài Infrastructure.</summary>
     private static User ToDomain(UserEntity e) => new()
     {
