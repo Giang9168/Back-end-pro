@@ -68,7 +68,9 @@ public sealed class UserRepository : IUserRepository
             IsNew          = true
         };
 
-        await adapter.SaveEntityAsync(entity, cancellationToken);
+        // refetchAfterSave: true — sau save entity bị đánh dấu out-of-sync,
+        // không refetch thì ToDomain đọc field sẽ ném ORMEntityOutOfSyncException
+        await adapter.SaveEntityAsync(entity, true, cancellationToken);
         return ToDomain(entity);
     }
 

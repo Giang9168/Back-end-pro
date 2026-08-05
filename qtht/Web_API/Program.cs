@@ -39,6 +39,18 @@ builder.Services
 
 builder.Services.AddAuthorization();
 
+// ── CORS: cho phép frontend Angular gọi API từ origin khác ──────────────
+// Dev mở app qua nhiều port (ng serve 4200, VS Code Simple Browser port ngẫu nhiên...)
+// nên cho phép mọi origin loopback. Khi deploy thật thì thay bằng WithOrigins(domain).
+const string FrontendCors = "Frontend";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(FrontendCors, policy => policy
+        .SetIsOriginAllowed(origin => Uri.TryCreate(origin, UriKind.Absolute, out var uri) && uri.IsLoopback)
+        .AllowAnyHeader()
+        .AllowAnyMethod());
+});
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
@@ -76,6 +88,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(FrontendCors);
 
 // Thứ tự BẮT BUỘC: Authentication trước Authorization.
 // "Anh là ai" phải trả lời xong thì mới xét được "anh có quyền không".
