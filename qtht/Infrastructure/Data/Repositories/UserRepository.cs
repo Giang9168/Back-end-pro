@@ -51,6 +51,16 @@ public sealed class UserRepository : IUserRepository
         return entity is null ? null : ToDomain(entity);
     }
 
+    public async Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
+    {
+        using var adapter = _adapterFactory.Create();
+        var qf = new QueryFactory();
+        var entity = await adapter.FetchFirstAsync(
+            qf.AppUser.Where(AppUserFields.Email.ToLower().Equal(email.ToLowerInvariant())),
+            cancellationToken);
+        return entity is null ? null : ToDomain(entity);
+    }
+
     public async Task<User> AddAsync(User user, CancellationToken cancellationToken = default)
     {
         using var adapter = _adapterFactory.Create();

@@ -134,6 +134,16 @@ namespace Qtht.Data.FactoryClasses
 		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new RefreshTokenEntity(fields); }
 	}
 
+	/// <summary>Factory to create new, empty UserLoginEntity objects.</summary>
+	[Serializable]
+	public partial class UserLoginEntityFactory : EntityFactoryBase2<UserLoginEntity> 
+	{
+		/// <summary>CTor</summary>
+		public UserLoginEntityFactory() : base("UserLoginEntity", Qtht.Data.EntityType.UserLoginEntity, false) { }
+		/// <inheritdoc/>
+		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new UserLoginEntity(fields); }
+	}
+
 	/// <summary>Factory to create new, empty Entity objects based on the entity type specified. Uses  entity specific factory objects</summary>
 	[Serializable]
 	public partial class GeneralEntityFactory
@@ -195,6 +205,8 @@ namespace Qtht.Data.FactoryClasses
 					return new ProductEntityFactory();
 				case Qtht.Data.EntityType.RefreshTokenEntity:
 					return new RefreshTokenEntityFactory();
+				case Qtht.Data.EntityType.UserLoginEntity:
+					return new UserLoginEntityFactory();
 				default:
 					return null;
 			}

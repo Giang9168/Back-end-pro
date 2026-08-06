@@ -20,18 +20,16 @@ namespace Qtht.Data.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-
 	/// <summary>Entity class which represents the entity 'EmailVerificationToken'.<br/><br/></summary>
 	[Serializable]
 	public partial class EmailVerificationTokenEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END
-	
+		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		private AppUserEntity _appUser;
+
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
-
 		private static EmailVerificationTokenEntityStaticMetaData _staticMetaData = new EmailVerificationTokenEntityStaticMetaData();
 		private static EmailVerificationTokenRelations _relationsFactory = new EmailVerificationTokenRelations();
 
@@ -123,7 +121,6 @@ namespace Qtht.Data.EntityClasses
 			PerformDependencyInjection();
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
-
 			OnInitClassMembersComplete();
 		}
 
@@ -138,7 +135,6 @@ namespace Qtht.Data.EntityClasses
 			InitClassMembers();
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
-
 
 			OnInitialized();
 		}
@@ -205,9 +201,9 @@ namespace Qtht.Data.EntityClasses
 			get { return _appUser; }
 			set { SetSingleRelatedEntityNavigator(value, "AppUser"); }
 		}
+
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-
 
 	}
 }

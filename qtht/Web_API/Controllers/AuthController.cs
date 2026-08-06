@@ -1,3 +1,4 @@
+using Application.Features.Auth.Commands.ExternalLogin;
 using Application.Features.Auth.Commands.Login;
 using Application.Features.Auth.Commands.Logout;
 using Application.Features.Auth.Commands.RefreshToken;
@@ -39,6 +40,14 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Login([FromBody] LoginCommand command, CancellationToken ct)
     {
         // Ghi đè IP bằng địa chỉ thật — không tin giá trị client gửi lên
+        var result = await _sender.Send(command with { ClientIp = ClientIp() }, ct);
+        return result.IsSuccess ? Ok(result.Data) : Unauthorized(result.ErrorMessage);
+    }
+
+    /// <summary>Đăng nhập/đăng ký qua nhà cung cấp ngoài (Google...). Chưa có tài khoản thì tự tạo.</summary>
+    [HttpPost("external")]
+    public async Task<IActionResult> ExternalLogin([FromBody] ExternalLoginCommand command, CancellationToken ct)
+    {
         var result = await _sender.Send(command with { ClientIp = ClientIp() }, ct);
         return result.IsSuccess ? Ok(result.Data) : Unauthorized(result.ErrorMessage);
     }

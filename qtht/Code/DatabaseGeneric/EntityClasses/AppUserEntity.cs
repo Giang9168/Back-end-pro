@@ -20,21 +20,20 @@ namespace Qtht.Data.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-
 	/// <summary>Entity class which represents the entity 'AppUser'.<br/><br/></summary>
 	[Serializable]
 	public partial class AppUserEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END
-	
+		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		private EntityCollection<EmailVerificationTokenEntity> _emailVerificationTokens;
 		private EntityCollection<PasswordResetTokenEntity> _passwordResetTokens;
 		private EntityCollection<RefreshTokenEntity> _refreshTokens;
+		private EntityCollection<UserLoginEntity> _userLogins;
 		private AppRoleEntity _appRole;
+
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
-
 		private static AppUserEntityStaticMetaData _staticMetaData = new AppUserEntityStaticMetaData();
 		private static AppUserRelations _relationsFactory = new AppUserRelations();
 
@@ -49,6 +48,8 @@ namespace Qtht.Data.EntityClasses
 			public static readonly string PasswordResetTokens = "PasswordResetTokens";
 			/// <summary>Member name RefreshTokens</summary>
 			public static readonly string RefreshTokens = "RefreshTokens";
+			/// <summary>Member name UserLogins</summary>
+			public static readonly string UserLogins = "UserLogins";
 		}
 
 		/// <summary>Static meta-data storage for navigator related information</summary>
@@ -60,6 +61,7 @@ namespace Qtht.Data.EntityClasses
 				AddNavigatorMetaData<AppUserEntity, EntityCollection<EmailVerificationTokenEntity>>("EmailVerificationTokens", a => a._emailVerificationTokens, (a, b) => a._emailVerificationTokens = b, a => a.EmailVerificationTokens, () => new AppUserRelations().EmailVerificationTokenEntityUsingUserId, typeof(EmailVerificationTokenEntity), (int)Qtht.Data.EntityType.EmailVerificationTokenEntity);
 				AddNavigatorMetaData<AppUserEntity, EntityCollection<PasswordResetTokenEntity>>("PasswordResetTokens", a => a._passwordResetTokens, (a, b) => a._passwordResetTokens = b, a => a.PasswordResetTokens, () => new AppUserRelations().PasswordResetTokenEntityUsingUserId, typeof(PasswordResetTokenEntity), (int)Qtht.Data.EntityType.PasswordResetTokenEntity);
 				AddNavigatorMetaData<AppUserEntity, EntityCollection<RefreshTokenEntity>>("RefreshTokens", a => a._refreshTokens, (a, b) => a._refreshTokens = b, a => a.RefreshTokens, () => new AppUserRelations().RefreshTokenEntityUsingUserId, typeof(RefreshTokenEntity), (int)Qtht.Data.EntityType.RefreshTokenEntity);
+				AddNavigatorMetaData<AppUserEntity, EntityCollection<UserLoginEntity>>("UserLogins", a => a._userLogins, (a, b) => a._userLogins = b, a => a.UserLogins, () => new AppUserRelations().UserLoginEntityUsingUserId, typeof(UserLoginEntity), (int)Qtht.Data.EntityType.UserLoginEntity);
 				AddNavigatorMetaData<AppUserEntity, AppRoleEntity>("AppRole", "AppUsers", (a, b) => a._appRole = b, a => a._appRole, (a, b) => a.AppRole = b, Qtht.Data.RelationClasses.StaticAppUserRelations.AppRoleEntityUsingRoleIdStatic, ()=>new AppUserRelations().AppRoleEntityUsingRoleId, null, new int[] { (int)AppUserFieldIndex.RoleId }, null, true, (int)Qtht.Data.EntityType.AppRoleEntity);
 			}
 		}
@@ -125,6 +127,10 @@ namespace Qtht.Data.EntityClasses
 		/// <returns></returns>
 		public virtual IRelationPredicateBucket GetRelationInfoRefreshTokens() { return CreateRelationInfoForNavigator("RefreshTokens"); }
 
+		/// <summary>Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entities of type 'UserLogin' to this entity.</summary>
+		/// <returns></returns>
+		public virtual IRelationPredicateBucket GetRelationInfoUserLogins() { return CreateRelationInfoForNavigator("UserLogins"); }
+
 		/// <summary>Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entity of type 'AppRole' to this entity.</summary>
 		/// <returns></returns>
 		public virtual IRelationPredicateBucket GetRelationInfoAppRole() { return CreateRelationInfoForNavigator("AppRole"); }
@@ -138,7 +144,6 @@ namespace Qtht.Data.EntityClasses
 			PerformDependencyInjection();
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
-
 			OnInitClassMembersComplete();
 		}
 
@@ -153,7 +158,6 @@ namespace Qtht.Data.EntityClasses
 			InitClassMembers();
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
-
 
 			OnInitialized();
 		}
@@ -172,6 +176,10 @@ namespace Qtht.Data.EntityClasses
 		/// <summary>Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'RefreshToken' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
 		public static IPrefetchPathElement2 PrefetchPathRefreshTokens { get { return _staticMetaData.GetPrefetchPathElement("RefreshTokens", CommonEntityBase.CreateEntityCollection<RefreshTokenEntity>()); } }
+
+		/// <summary>Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'UserLogin' for this entity.</summary>
+		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
+		public static IPrefetchPathElement2 PrefetchPathUserLogins { get { return _staticMetaData.GetPrefetchPathElement("UserLogins", CommonEntityBase.CreateEntityCollection<UserLoginEntity>()); } }
 
 		/// <summary>Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'AppRole' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
@@ -242,7 +250,7 @@ namespace Qtht.Data.EntityClasses
 		}
 
 		/// <summary>The PasswordHash property of the Entity AppUser<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "app_user"."password_hash".<br/>Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 255.<br/>Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		/// <remarks>Mapped on  table field: "app_user"."password_hash".<br/>Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 255.<br/>Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual System.String PasswordHash
 		{
 			get { return (System.String)GetValue((int)AppUserFieldIndex.PasswordHash, true); }
@@ -285,6 +293,10 @@ namespace Qtht.Data.EntityClasses
 		[TypeContainedAttribute(typeof(RefreshTokenEntity))]
 		public virtual EntityCollection<RefreshTokenEntity> RefreshTokens { get { return GetOrCreateEntityCollection<RefreshTokenEntity, RefreshTokenEntityFactory>("AppUser", true, false, ref _refreshTokens); } }
 
+		/// <summary>Gets the EntityCollection with the related entities of type 'UserLoginEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>
+		[TypeContainedAttribute(typeof(UserLoginEntity))]
+		public virtual EntityCollection<UserLoginEntity> UserLogins { get { return GetOrCreateEntityCollection<UserLoginEntity, UserLoginEntityFactory>("AppUser", true, false, ref _userLogins); } }
+
 		/// <summary>Gets / sets related entity of type 'AppRoleEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
 		public virtual AppRoleEntity AppRole
@@ -292,9 +304,9 @@ namespace Qtht.Data.EntityClasses
 			get { return _appRole; }
 			set { SetSingleRelatedEntityNavigator(value, "AppRole"); }
 		}
+
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-
 
 	}
 }
@@ -355,6 +367,12 @@ namespace Qtht.Data.RelationClasses
 			get { return ModelInfoProviderSingleton.GetInstance().CreateRelation(RelationType.OneToMany, "RefreshTokens", true, new[] { AppUserFields.Id, RefreshTokenFields.UserId }); }
 		}
 
+		/// <summary>Returns a new IEntityRelation object, between AppUserEntity and UserLoginEntity over the 1:n relation they have, using the relation between the fields: AppUser.Id - UserLogin.UserId</summary>
+		public virtual IEntityRelation UserLoginEntityUsingUserId
+		{
+			get { return ModelInfoProviderSingleton.GetInstance().CreateRelation(RelationType.OneToMany, "UserLogins", true, new[] { AppUserFields.Id, UserLoginFields.UserId }); }
+		}
+
 		/// <summary>Returns a new IEntityRelation object, between AppUserEntity and AppRoleEntity over the m:1 relation they have, using the relation between the fields: AppUser.RoleId - AppRole.Id</summary>
 		public virtual IEntityRelation AppRoleEntityUsingRoleId
 		{
@@ -369,6 +387,7 @@ namespace Qtht.Data.RelationClasses
 		internal static readonly IEntityRelation EmailVerificationTokenEntityUsingUserIdStatic = new AppUserRelations().EmailVerificationTokenEntityUsingUserId;
 		internal static readonly IEntityRelation PasswordResetTokenEntityUsingUserIdStatic = new AppUserRelations().PasswordResetTokenEntityUsingUserId;
 		internal static readonly IEntityRelation RefreshTokenEntityUsingUserIdStatic = new AppUserRelations().RefreshTokenEntityUsingUserId;
+		internal static readonly IEntityRelation UserLoginEntityUsingUserIdStatic = new AppUserRelations().UserLoginEntityUsingUserId;
 		internal static readonly IEntityRelation AppRoleEntityUsingRoleIdStatic = new AppUserRelations().AppRoleEntityUsingRoleId;
 
 		/// <summary>CTor</summary>

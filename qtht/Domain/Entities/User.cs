@@ -10,8 +10,11 @@ public class User
     public required string UserName { get; init; }
     public string? Email { get; init; }
 
-    /// <summary>Chuỗi băm BCrypt. Không bao giờ lộ ra DTO/API.</summary>
-    public required string PasswordHash { get; init; }
+    /// <summary>
+    /// Chuỗi băm BCrypt. Không bao giờ lộ ra DTO/API.
+    /// Null với user chỉ đăng nhập qua provider ngoài (Google...) — họ không có mật khẩu.
+    /// </summary>
+    public string? PasswordHash { get; init; }
 
     public required Guid RoleId { get; init; }
 

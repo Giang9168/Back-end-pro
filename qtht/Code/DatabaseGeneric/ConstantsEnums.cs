@@ -27,7 +27,9 @@ namespace Qtht.Data
 		///<summary>Product</summary>
 		ProductEntity,
 		///<summary>RefreshToken</summary>
-		RefreshTokenEntity
+		RefreshTokenEntity,
+		///<summary>UserLogin</summary>
+		UserLoginEntity
 	}
 
 

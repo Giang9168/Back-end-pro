@@ -33,6 +33,13 @@ public static class DependencyInjection
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+        services.AddScoped<IUserLoginRepository, UserLoginRepository>();
+
+        // ── Đăng nhập ngoài ──────────────────────────────────────────────
+        // Mỗi provider một hiện thực IExternalAuthProvider; handler chọn theo tên.
+        // Thêm Facebook/GitHub sau này = thêm một dòng đăng ký ở đây.
+        services.AddSingleton(new GoogleAuthSettings(configuration["Google:ClientId"]));
+        services.AddSingleton<IExternalAuthProvider, GoogleAuthProvider>();
 
         // ── JWT ──────────────────────────────────────────────────────────
         var jwtSettings = configuration.GetSection(JwtSettings.SectionName).Get<JwtSettings>()

@@ -20,18 +20,16 @@ namespace Qtht.Data.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-
 	/// <summary>Entity class which represents the entity 'AppRole'.<br/><br/></summary>
 	[Serializable]
 	public partial class AppRoleEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END
-	
+		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		private EntityCollection<AppUserEntity> _appUsers;
+
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
-
 		private static AppRoleEntityStaticMetaData _staticMetaData = new AppRoleEntityStaticMetaData();
 		private static AppRoleRelations _relationsFactory = new AppRoleRelations();
 
@@ -123,7 +121,6 @@ namespace Qtht.Data.EntityClasses
 			PerformDependencyInjection();
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
-
 			OnInitClassMembersComplete();
 		}
 
@@ -138,7 +135,6 @@ namespace Qtht.Data.EntityClasses
 			InitClassMembers();
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
-
 
 			OnInitialized();
 		}
@@ -193,9 +189,9 @@ namespace Qtht.Data.EntityClasses
 		/// <summary>Gets the EntityCollection with the related entities of type 'AppUserEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>
 		[TypeContainedAttribute(typeof(AppUserEntity))]
 		public virtual EntityCollection<AppUserEntity> AppUsers { get { return GetOrCreateEntityCollection<AppUserEntity, AppUserEntityFactory>("AppRole", true, false, ref _appUsers); } }
+
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-
 
 	}
 }

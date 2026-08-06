@@ -197,7 +197,7 @@
           <Field Name="IsActive" Type="bool" />
           <Field Name="LastLoginAt" Type="datetime" IsOptional="true" />
           <Field Name="LockoutEnd" Type="datetime" IsOptional="true" />
-          <Field Name="PasswordHash" Type="string" IsOptional="true" MaxLength="255" />
+          <Field Name="PasswordHash" Type="string" MaxLength="255" />
           <Field Name="RoleId" Type="guid" />
           <Field Name="UpdatedAt" Type="datetime" IsOptional="true" />
           <Field Name="UserName" Type="string" MaxLength="100" />
@@ -265,14 +265,6 @@
           </UniqueConstraint>
         </UniqueConstraints>
       </EntityDefinition>
-      <EntityDefinition Name="UserLogin" ObjectID="542b2f50-a633-417d-8770-6b1b1d7bf752">
-        <Fields>
-          <Field Name="CreatedAt" Type="datetime" />
-          <Field Name="Provider" Type="string" MaxLength="20" IsPrimaryKey="true" />
-          <Field Name="ProviderUserId" Type="string" MaxLength="100" IsPrimaryKey="true" />
-          <Field Name="UserId" Type="guid" />
-        </Fields>
-      </EntityDefinition>
     </EntityDefinitions>
     <Relationships>
       <NormalRelationship Name="AppUser.AppRole-AppRole.AppUsers" Start=":AppUser" End=":AppRole" StartNavigator="AppRole" EndNavigator="AppUsers" Type="4" DeleteRuleAction="4">
@@ -300,11 +292,6 @@
           <FieldFieldRelationship FkField="ReplacedBy" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="UserLogin.AppUser-AppUser.UserLogins" Start=":UserLogin" End=":AppUser" StartNavigator="AppUser" EndNavigator="UserLogins" Type="4">
-        <FieldRelationships>
-          <FieldFieldRelationship FkField="UserId" PkField="Id" />
-        </FieldRelationships>
-      </NormalRelationship>
     </Relationships>
     <InheritanceHierarchies />
   </EntityModel>
@@ -325,7 +312,7 @@
       <Catalogs>
         <Catalog Name="postgres">
           <Schemas>
-            <Schema Name="public" SyncSource="2" LastSyncWithDatabase="2026-08-06T07:18:04.686415Z">
+            <Schema Name="public" SyncSource="2" LastSyncWithDatabase="2026-07-20T07:45:56.8908734Z">
               <Sequences>
                 <Sequence Name="newtable_id_seq" />
               </Sequences>
@@ -351,7 +338,7 @@
                     <Field Name="id" Ordinal="1" IsPrimaryKey="true" HasDefaultValue="true" DefaultValue="gen_random_uuid()" DbType="28" />
                     <Field Name="user_name" Ordinal="2" DbType="24" Length="100" />
                     <Field Name="email" Ordinal="3" IsOptional="true" DbType="24" Length="255" />
-                    <Field Name="password_hash" Ordinal="4" IsOptional="true" DbType="24" Length="255" />
+                    <Field Name="password_hash" Ordinal="4" DbType="24" Length="255" />
                     <Field Name="role_id" Ordinal="5" DbType="28" />
                     <Field Name="is_active" Ordinal="6" HasDefaultValue="true" DefaultValue="true" DbType="0" />
                     <Field Name="email_confirmed" Ordinal="7" HasDefaultValue="true" DefaultValue="false" DbType="0" />
@@ -429,15 +416,6 @@
                     </UniqueConstraint>
                   </UniqueConstraints>
                 </Table>
-                <Table Name="user_login">
-                  <PkConstraintName Name="user_login_pkey" />
-                  <Fields>
-                    <Field Name="user_id" Ordinal="1" DbType="28" />
-                    <Field Name="provider" Ordinal="2" IsPrimaryKey="true" DbType="24" Length="20" />
-                    <Field Name="provider_user_id" Ordinal="3" IsPrimaryKey="true" DbType="24" Length="100" />
-                    <Field Name="created_at" Ordinal="4" HasDefaultValue="true" DefaultValue="now()" DbType="23" />
-                  </Fields>
-                </Table>
               </Tables>
               <StoredProcedures>
                 <StoredProcedure Name="set_updated_at" />
@@ -468,11 +446,6 @@
             <ForeignKeyConstraint Name="public:refresh_token:refresh_token_user_id_fkey" DeleteRuleAction="1">
               <FieldPairs>
                 <FieldPair PkField="public:app_user:id" FkField="public:refresh_token:user_id" />
-              </FieldPairs>
-            </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="public:user_login:user_login_user_id_fkey">
-              <FieldPairs>
-                <FieldPair PkField="public:app_user:id" FkField="public:user_login:user_id" />
               </FieldPairs>
             </ForeignKeyConstraint>
           </ForeignKeyConstraints>
@@ -552,14 +525,6 @@
             <FieldMapping FieldName="RevokedByIp" TargetFieldName="revoked_by_ip" />
             <FieldMapping FieldName="RevokedReason" TargetFieldName="revoked_reason" />
             <FieldMapping FieldName="TokenHash" TargetFieldName="token_hash" />
-            <FieldMapping FieldName="UserId" TargetFieldName="user_id" />
-          </FieldMappings>
-        </EntityMapping>
-        <EntityMapping EntityName=":UserLogin" TargetName="postgres:public:user_login">
-          <FieldMappings>
-            <FieldMapping FieldName="CreatedAt" TargetFieldName="created_at" />
-            <FieldMapping FieldName="Provider" TargetFieldName="provider" />
-            <FieldMapping FieldName="ProviderUserId" TargetFieldName="provider_user_id" />
             <FieldMapping FieldName="UserId" TargetFieldName="user_id" />
           </FieldMappings>
         </EntityMapping>

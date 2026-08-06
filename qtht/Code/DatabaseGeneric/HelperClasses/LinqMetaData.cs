@@ -58,6 +58,8 @@ namespace Qtht.Data.Linq
 					return this.Product;
 				case Qtht.Data.EntityType.RefreshTokenEntity:
 					return this.RefreshToken;
+				case Qtht.Data.EntityType.UserLoginEntity:
+					return this.UserLogin;
 				default:
 					return null;
 			}
@@ -104,6 +106,9 @@ namespace Qtht.Data.Linq
 		
 		/// <summary>returns the datasource to use in a Linq query when targeting RefreshTokenEntity instances in the database.</summary>
 		public DataSource2<RefreshTokenEntity> RefreshToken {	get { return new DataSource2<RefreshTokenEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse); } }
+		
+		/// <summary>returns the datasource to use in a Linq query when targeting UserLoginEntity instances in the database.</summary>
+		public DataSource2<UserLoginEntity> UserLogin {	get { return new DataSource2<UserLoginEntity>(this.AdapterToUse, new ElementCreator(), this.CustomFunctionMappings, this.ContextToUse); } }
 		
 
 

@@ -132,6 +132,19 @@ namespace Qtht.Data.HelperClasses
 		/// <summary>Creates a new RefreshTokenEntity.UserId field instance</summary>
 		public static EntityField2 UserId { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(RefreshTokenFieldIndex.UserId); }}
 	}
+
+	/// <summary>Field Creation Class for entity UserLoginEntity</summary>
+	public partial class UserLoginFields
+	{
+		/// <summary>Creates a new UserLoginEntity.CreatedAt field instance</summary>
+		public static EntityField2 CreatedAt { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserLoginFieldIndex.CreatedAt); }}
+		/// <summary>Creates a new UserLoginEntity.Provider field instance</summary>
+		public static EntityField2 Provider { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserLoginFieldIndex.Provider); }}
+		/// <summary>Creates a new UserLoginEntity.ProviderUserId field instance</summary>
+		public static EntityField2 ProviderUserId { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserLoginFieldIndex.ProviderUserId); }}
+		/// <summary>Creates a new UserLoginEntity.UserId field instance</summary>
+		public static EntityField2 UserId { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserLoginFieldIndex.UserId); }}
+	}
 	
 
 }

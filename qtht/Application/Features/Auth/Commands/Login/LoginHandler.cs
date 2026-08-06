@@ -35,13 +35,28 @@ public class LoginHandler : IRequestHandler<LoginCommand, Result<LoginResponse>>
         LoginCommand request,
         CancellationToken cancellationToken)
     {
-        var user = await _users.GetByUserNameAsync(request.EmailOrUsername, cancellationToken);
+        var identifier = request.EmailOrUsername.Trim();
+        var user = await _users.GetByUserNameAsync(identifier, cancellationToken);
+
+        // Form cho phép nhập email hoặc username — không thấy theo username thì thử email
+        if (user is null && identifier.Contains('@'))
+        {
+            user = await _users.GetByEmailAsync(identifier, cancellationToken);
+        }
 
         // Mọi nhánh thất bại trả CÙNG một thông báo. Nói rõ "sai mật khẩu" là vô tình
         // xác nhận tài khoản có tồn tại — giúp kẻ tấn công dò danh sách user.
         if (user is null || !user.IsActive)
         {
             return Result<LoginResponse>.Failure(InvalidCredentials, "AUTH_INVALID_CREDENTIALS");
+        }
+
+        // User tạo qua provider ngoài không có mật khẩu — chỉ đường thay vì báo sai chung chung
+        if (string.IsNullOrEmpty(user.PasswordHash))
+        {
+            return Result<LoginResponse>.Failure(
+                "Tài khoản này đăng nhập qua Google. Hãy dùng nút đăng nhập Google.",
+                "AUTH_EXTERNAL_ONLY");
         }
 
         if (!_hasher.Verify(request.Password, user.PasswordHash))

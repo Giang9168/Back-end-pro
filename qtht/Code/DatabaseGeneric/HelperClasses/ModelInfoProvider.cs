@@ -48,6 +48,7 @@ namespace Qtht.Data.HelperClasses
 			InitPasswordResetTokenEntityInfo();
 			InitProductEntityInfo();
 			InitRefreshTokenEntityInfo();
+			InitUserLoginEntityInfo();
 			this.BuildInternalStructures();
 		}
 
@@ -74,7 +75,7 @@ namespace Qtht.Data.HelperClasses
 			this.AddElementFieldInfo("AppUserEntity", "IsActive", typeof(System.Boolean), false, false, false, false,  (int)AppUserFieldIndex.IsActive, 0, 0, 0);
 			this.AddElementFieldInfo("AppUserEntity", "LastLoginAt", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AppUserFieldIndex.LastLoginAt, 0, 0, 0);
 			this.AddElementFieldInfo("AppUserEntity", "LockoutEnd", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AppUserFieldIndex.LockoutEnd, 0, 0, 0);
-			this.AddElementFieldInfo("AppUserEntity", "PasswordHash", typeof(System.String), false, false, false, false,  (int)AppUserFieldIndex.PasswordHash, 255, 0, 0);
+			this.AddElementFieldInfo("AppUserEntity", "PasswordHash", typeof(System.String), false, false, false, true,  (int)AppUserFieldIndex.PasswordHash, 255, 0, 0);
 			this.AddElementFieldInfo("AppUserEntity", "RoleId", typeof(System.Guid), false, true, false, false,  (int)AppUserFieldIndex.RoleId, 0, 0, 0);
 			this.AddElementFieldInfo("AppUserEntity", "UpdatedAt", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AppUserFieldIndex.UpdatedAt, 0, 0, 0);
 			this.AddElementFieldInfo("AppUserEntity", "UserName", typeof(System.String), false, false, false, false,  (int)AppUserFieldIndex.UserName, 100, 0, 0);
@@ -135,6 +136,16 @@ namespace Qtht.Data.HelperClasses
 			this.AddElementFieldInfo("RefreshTokenEntity", "RevokedReason", typeof(System.String), false, false, false, true,  (int)RefreshTokenFieldIndex.RevokedReason, 50, 0, 0);
 			this.AddElementFieldInfo("RefreshTokenEntity", "TokenHash", typeof(System.String), false, false, false, false,  (int)RefreshTokenFieldIndex.TokenHash, 128, 0, 0);
 			this.AddElementFieldInfo("RefreshTokenEntity", "UserId", typeof(System.Guid), false, true, false, false,  (int)RefreshTokenFieldIndex.UserId, 0, 0, 0);
+		}
+
+		/// <summary>Inits UserLoginEntity's info objects</summary>
+		private void InitUserLoginEntityInfo()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(UserLoginFieldIndex), "UserLoginEntity");
+			this.AddElementFieldInfo("UserLoginEntity", "CreatedAt", typeof(System.DateTime), false, false, false, false,  (int)UserLoginFieldIndex.CreatedAt, 0, 0, 0);
+			this.AddElementFieldInfo("UserLoginEntity", "Provider", typeof(System.String), true, false, false, false,  (int)UserLoginFieldIndex.Provider, 20, 0, 0);
+			this.AddElementFieldInfo("UserLoginEntity", "ProviderUserId", typeof(System.String), true, false, false, false,  (int)UserLoginFieldIndex.ProviderUserId, 100, 0, 0);
+			this.AddElementFieldInfo("UserLoginEntity", "UserId", typeof(System.Guid), false, true, false, false,  (int)UserLoginFieldIndex.UserId, 0, 0, 0);
 		}
 	}
 }

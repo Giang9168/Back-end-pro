@@ -39,6 +39,9 @@ namespace Qtht.Data.FactoryClasses
 		/// <summary>Creates and returns a new EntityQuery for the RefreshToken entity</summary>
 		public EntityQuery<RefreshTokenEntity> RefreshToken { get { return Create<RefreshTokenEntity>(); } }
 
+		/// <summary>Creates and returns a new EntityQuery for the UserLogin entity</summary>
+		public EntityQuery<UserLoginEntity> UserLogin { get { return Create<UserLoginEntity>(); } }
+
 		/// <inheritdoc/>
 		protected override IElementCreatorCore CreateElementCreator() { return new ElementCreator(); }
  
